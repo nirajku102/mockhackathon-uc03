@@ -43,6 +43,24 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      - name: Install Checkov
+        run: |
+          pip install checkov
+
+      - name: Run Checkov
+        run: |
+          cd terraform
+          checkov -d .
+
+      - name: Install TFLint
+        run: |
+          curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+
+      - name: Run TFLint
+        run: |
+          cd terraform
+          tflint
+
       - name: Initialize Terraform
         run: |
           cd terraform
