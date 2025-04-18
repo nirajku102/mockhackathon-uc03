@@ -43,14 +43,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      # - name: Install Checkov
-      #   run: |
-      #     pip install checkov
+      - name: Install Checkov
+        run: |
+          pip install checkov
 
-      # - name: Run Checkov
-      #   run: |
-      #     cd terraform
-      #     checkov -d .
+      - name: Run Checkov
+        run: |
+          cd terraform
+          checkov -d . --soft-fail
 
       - name: Install TFLint
         run: |
