@@ -84,7 +84,7 @@ jobs:
             ```diff
             ${{ env.plan_content }}
             ```
-          labels: terraform, plan
+          # labels: terraform, plan
 
         
         
